@@ -1,0 +1,31 @@
+
+<div class="container col">
+  <h2>Listes des Invitations</h2>
+  <div class="row">
+    @for (inv of invModel; track $index) {
+    <div class="card one-card">
+    <div class="row">
+
+      <div class="col" style="margin-top: 1rem" >
+        <h5> <i> <b>{{inv.sender.firstname}} {{inv.sender.lastname}}</b></i></h5>
+        <h6>{{inv.sender.resume}}</h6>
+        <address>{{inv.id}}</address>
+      </div>
+
+      <div class="col">
+        <div class="image">
+           <img src="" alt="">
+        </div>
+        <div class=" btn">
+          <button (click)="accepterInv(inv.id)">Accepter</button>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+  }
+  </div>
+
+
+</div>
