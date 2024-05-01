@@ -7,6 +7,7 @@ import { SignUpComponent } from './components/authentication/sign-up/sign-up.com
 import { LoginComponent } from './components/authentication/login/login.component';
 import { ProfileUserComponent } from './profile/profile-user/profile-user.component';
 import { authGuard } from './components/authentication/service/auth.guard';
+import { CreatePublicationComponent } from './profile/publication/create-publication/create-publication.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,9 @@ export const routes: Routes = [
         path: 'listInvitation',
         component: ListInvitComponent,canActivate:[authGuard]
       },
+      {
+        path:'createPub',component:CreatePublicationComponent
+      }
     ],
   },
   { path: 'chat', component: ChatComponent },

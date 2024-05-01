@@ -1,0 +1,14 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Create Publication</h5>
+      <form [formGroup]="pubForm" >
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea class="form-control" id="content" formControlName="content" rows="3"required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="createPublication()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
