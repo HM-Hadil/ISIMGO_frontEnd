@@ -1,38 +1,217 @@
+
+<!--
 @if (user) {
 <div class="twPc-div">
   <a class="twPc-bg twPc-block"></a>
 
-
-
-    <div class="d-flex">
-      <div>
-        <a>
-          <img
-            alt=""
-            src="data:image/jpeg;base64,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"
-            class="twPc-avatarImg"
-          />
-        </a>
-      </div>
-      <h1 style="margin-top: -3rem; color:white ;margin-left: 1rem;">{{ user.firstname }} {{ user.lastname }}</h1>
+  <div class="d-flex">
+    <div>
+      <a>
+        <img
+          alt=""
+          src="data:image/jpeg;base64,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"
+          class="twPc-avatarImg"
+        />
+      </a>
     </div>
-    <div class="container">
-      <div class="row">
-        <!-- Sidebar div -->
-        <div class="col-md-3 mt-4 ">
-            <h4>{{ user.resume }}</h4>
-
-        </div>
-        <!-- Main content div -->
-        <div class="col-md-9 mt-4">
-            <!-- Your content here -->
-            tt hhh*
-
-        </div>
+    <h1 style="margin-top: -3rem; color: white; margin-left: 1rem">
+      {{ user.firstname }} {{ user.lastname }}
+    </h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mt-4">
+        <h4>{{ user.resume }}</h4>
+      </div>
+      <div class="col-md-9 mt-4">
+        tt hhh*
       </div>
     </div>
-
-
+  </div>
 </div>
-}
+
+-->
 <!-- code end -->
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container" style="width: 100%">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="content" class="content content-full-width">
+        <!-- begin profile -->
+        <div class="profile">
+          <div class="profile-header">
+            <!-- BEGIN profile-header-cover -->
+            <div class="profile-header-cover"></div>
+            <!-- END profile-header-cover -->
+            <!-- BEGIN profile-header-content -->
+            @if (user) {
+
+            <div class="profile-header-content">
+              <!-- BEGIN profile-header-img -->
+              <div class="profile-header-img">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                  alt=""
+                />
+              </div>
+              <!-- END profile-header-img -->
+              <!-- BEGIN profile-header-info -->
+              <div class="profile-header-info">
+                <h4 class="m-t-10 m-b-5">{{ user.firstname }} {{ user.lastname }}</h4>
+                <p class="m-b-10">{{ user.resume }}</p>
+              </div>
+              <!-- END profile-header-info -->
+            </div>
+            <!-- END profile-header-content -->
+            <!-- BEGIN profile-header-tab -->
+            <ul class="profile-header-tab nav nav-tabs">
+              <li class="nav-item">
+                <a
+                  href="https://www.bootdey.com/snippets/view/bs4-profile-with-timeline-posts"
+                  target="__blank"
+                  class="nav-link_"
+                  >POSTS</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://www.bootdey.com/snippets/view/bs4-profile-about"
+                  target="__blank"
+                  class="nav-link_"
+                  >ABOUT</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://www.bootdey.com/snippets/view/profile-photos"
+                  target="__blank"
+                  class="nav-link_"
+                  >PHOTOS</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://www.bootdey.com/snippets/view/profile-videos"
+                  target="__blank"
+                  class="nav-link_"
+                  >VIDEOS</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://www.bootdey.com/snippets/view/bs4-profile-friend-list"
+                  target="__blank"
+                  class="nav-link_ active show"
+                  >FRIENDS</a
+                >
+              </li>
+            </ul>
+            <!-- END profile-header-tab -->
+          }
+          </div>
+
+        </div>
+        <!-- end profile -->
+
+        <!-- begin profile-content -->
+        @if (user) {
+        <div class="profile-content">
+          <!-- begin tab-content -->
+          <div class="tab-content p-0">
+            <!-- begin #profile-post tab -->
+            <div class="tab-pane fade active show" id="profile-post">
+              <!-- begin timeline -->
+              <ul class="timeline">
+                <li >
+                  <!-- begin timeline-time -->
+                  <div class="timeline-time">
+                    <!-- Adjust the time format as needed -->
+                  </div>
+                  <!-- end timeline-time -->
+                  <!-- begin timeline-icon -->
+                  <div class="timeline-icon">
+                    <a href="javascript:;">&nbsp;</a>
+                  </div>
+                  <!-- end timeline-icon -->
+                  <!-- begin timeline-body -->
+                  <div class="timeline-body">
+                    <div class="timeline-header">
+                      <!-- Display user image and name -->
+                      <span class="userimage">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
+                      </span>
+                      <span class="username">
+                        <a href="javascript:;">{{ user.firstname }} {{ user.lastname }}</a>
+                        <small></small>
+                      </span>
+                      <!-- Display publication content -->
+                      <div class="timeline-content">
+                      </div>
+                      <!-- Display publication statistics -->
+                      <div class="timeline-likes">
+                        <div class="stats-right">
+                          <span class="stats-text">259 Shares</span>
+                          <span class="stats-text">21 Comments</span>
+                        </div>
+                        <!-- Adjust other publication statistics as needed -->
+                      </div>
+                      <!-- Display timeline footer buttons -->
+                      <div class="timeline-footer">
+                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"
+                          ><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>
+                          Like</a
+                        >
+                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"
+                          ><i class="fa fa-comments fa-fw fa-lg m-r-3"></i>
+                          Comment</a
+                        >
+                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"
+                          ><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a
+                        >
+                      </div>
+                      <!-- Display timeline comment box -->
+                      <div class="timeline-comment-box">
+                        <div class="user">
+                          <img alt="" src="https://bootdey.com/img/Content/avatar/avatar3.png" />
+                        </div>
+                        <div class="input">
+                          <form action="">
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control rounded-corner"
+                                placeholder="Write a comment..."
+                              />
+                              <span class="input-group-btn p-l-10">
+                                <button
+                                  class="btn btn-primary f-s-12 rounded-corner"
+                                  type="button"
+                                >
+                                  Comment
+                                </button>
+                              </span>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end timeline-body -->
+                  </div>
+                  <!-- end timeline-body -->
+                </li>
+              </ul>
+              <!-- end timeline -->
+            </div>
+            <!-- end #profile-post tab -->
+          </div>
+          <!-- end tab-content -->
+        </div>
+        <!-- end profile-content -->
+      }
+      </div>
+    </div>
+  </div>
+</div>

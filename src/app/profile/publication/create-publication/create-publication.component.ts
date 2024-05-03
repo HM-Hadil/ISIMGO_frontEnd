@@ -10,6 +10,7 @@ import {
 import { PubServiceService } from '../pub-service.service';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../../service/user-service.service';
+import { PubRequest } from '../PubRequest';
 
 @Component({
   selector: 'app-create-publication',
@@ -37,24 +38,31 @@ export class CreatePublicationComponent {
   }
 
   ngOnInit(): void {
-    this.getUserByEmail();}
+    this.getUserByEmail();
+    }
+    createPublication(){
+      let data = this.pubForm.value;
+      let req= new PubRequest(
+        data.content,
+        this.id
+      );
 
-  createPublication() {
-    this.pubModel = this.pubForm.value;
-    this.service.createPub(this.id,this.pubModel.content).subscribe(
-      data=>{
-        console.log('res',data);
-      }
-    );
-  }
+      this.service.createPub(req).subscribe(data=>{
+        console.log("res : to back=>",data);
+      })
+
+      
+    }
+ 
   getUserByEmail() {
     const token = localStorage.getItem('tokenChat');
     const tokenParts = token?.split('.');
     const decodedToken = JSON.parse(atob(tokenParts![1]));
     const email = decodedToken.sub;
     this.userSer.getUserByEmail(email).subscribe((res) => {
-      this.id = res.id;
-      console.log("id",this.id);
+      console.log(res);
+      this.id= res.id;
+      console.log('id',this.id);
 
     });
   }

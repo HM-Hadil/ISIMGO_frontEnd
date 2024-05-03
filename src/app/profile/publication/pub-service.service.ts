@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PubModel } from './PubModel';
+import { PubRequest } from './PubRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +17,9 @@ export class PubServiceService {
 
 
   constructor(private http: HttpClient) {}
-  createPub(id: string, content: string): Observable<PubModel> {
-    const body = { id, content };
-    return this.http.post<PubModel>(this.pub, body);
+
+  createPub( pubReq:PubRequest): Observable<PubRequest> {
+    return this.http.post<PubRequest>(this.pub, pubReq);
   }
 
   getlistPub(id:any):Observable<PubModel[]>{

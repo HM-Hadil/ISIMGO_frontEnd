@@ -8,6 +8,7 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { ProfileUserComponent } from './profile/profile-user/profile-user.component';
 import { authGuard } from './components/authentication/service/auth.guard';
 import { CreatePublicationComponent } from './profile/publication/create-publication/create-publication.component';
+import { ListPublicationComponent } from './profile/publication/list-publication/list-publication.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,8 @@ export const routes: Routes = [
       },
       {
         path:'createPub',component:CreatePublicationComponent
-      }
+      },
+      {path:'listPub',component:ListPublicationComponent}
     ],
   },
   { path: 'chat', component: ChatComponent },

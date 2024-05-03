@@ -1,6 +1,8 @@
+import { PubServiceService } from './../publication/pub-service.service';
 import { UserModel } from './../UserModel';
 import { Component } from '@angular/core';
 import { UserServiceService } from '../service/user-service.service';
+import { UserDetails } from '../UserDetails';
 
 @Component({
   selector: 'app-profile-user',
@@ -10,10 +12,10 @@ import { UserServiceService } from '../service/user-service.service';
   styleUrl: './profile-user.component.scss'
 })
 export class ProfileUserComponent {
-  constructor(private service:UserServiceService){}
+  constructor(private service:UserServiceService,private pubservice: PubServiceService){}
 
  email:any;
- user!:UserModel;
+ user!:UserDetails;
  ngOnInit(): void {
   this.getUserByEmail();
  }
@@ -26,12 +28,16 @@ export class ProfileUserComponent {
  console.log(this.email);
  this.service.getUserByEmail(this.email).subscribe(
   (res)=>{
-    console.log(res);
+    console.log("res of get user by email ",res);
     this.user=res;
+    console.log("our model user",this.user)
 
   }
  )
 
- }
+ 
 
+
+
+}
 }
