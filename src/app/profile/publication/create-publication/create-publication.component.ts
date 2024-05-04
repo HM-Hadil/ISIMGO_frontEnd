@@ -49,11 +49,12 @@ export class CreatePublicationComponent {
 
       this.service.createPub(req).subscribe(data=>{
         console.log("res : to back=>",data);
+        this.router.navigate(['/profile']);
       })
 
-      
+
     }
- 
+
   getUserByEmail() {
     const token = localStorage.getItem('tokenChat');
     const tokenParts = token?.split('.');

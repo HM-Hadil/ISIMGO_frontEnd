@@ -11,5 +11,5 @@ export class UserDetails{
   id: any,
   content: string,
   createdAt: any
-}
+}[]
 }

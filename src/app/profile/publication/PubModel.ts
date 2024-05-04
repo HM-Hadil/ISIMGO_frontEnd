@@ -10,6 +10,7 @@ export class PubModel
   password:String;
   resume:String;
 
- };
+ }[];
  createdAt!:any
 }
+

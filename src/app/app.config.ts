@@ -5,9 +5,11 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideAnimationsAsync(),provideHttpClient()
-,ReactiveFormsModule
+,ReactiveFormsModule,  DatePipe
+
   ]
 };

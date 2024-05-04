@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceInvService } from '../service/service-inv.service';
+import { UserServiceService } from '../../../profile/service/user-service.service';
 
 
 
@@ -15,36 +16,49 @@ import { ServiceInvService } from '../service/service-inv.service';
 })
 export class ListInvitComponent {
   invModel: InvResult[] = [];
+  listInv :InvResult[]=[];
+  id!:any;
+  email:any;
 
-  id = '2';
   constructor(
-    private service: ServiceInvService,
+    private serviceInv: ServiceInvService,
     private router: Router,
+    private serviceUser:UserServiceService,
     private http: HttpClient
   ) {}
 
   ngOnInit() {
-    this.getListInvitaions();
+    this.getUserByEmail() ;
 
   }
 
+  getUserByEmail() {
+    const token = localStorage.getItem('tokenChat');
+    const tokenParts = token?.split('.');
+    const decodedToken = JSON.parse(atob(tokenParts![1]));
+    const email = decodedToken.sub;
+    this.serviceUser.getUserByEmail(email).subscribe((res) => {
+      console.log(res);
+      this.id = res.id;
+      console.log('idReciever', this.id);
+      // Call getListInvByReciever here
+      this.getListInvByReciever();
+    });
+  }
 
-  getListInvitaions() {
-    return this.service.getListInv(this.id).subscribe(
-      (data) => {
-        this.invModel = data;
+  getListInvByReciever() {
+    if (this.id) {
+      this.serviceInv.getListInv(this.id).subscribe(data => {
+        console.log("data", data);
+        this.listInv = data;
+        console.log("list inv model result", this.listInv);
+      });
+    }
 
-        console.log('reload data ==>>', this.invModel);
-      },
-
-      (err) => {
-        console.error('Error ', err);
-      }
-    );
   }
 
   accepterInv(id:any){
-    this.service.accepterInvitation(id).subscribe(data => {
+    this.serviceInv.accepterInvitation(id).subscribe(data => {
       alert("invitation accepté");
 
     }, error => {

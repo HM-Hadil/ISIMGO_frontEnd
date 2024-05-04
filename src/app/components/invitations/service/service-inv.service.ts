@@ -10,16 +10,26 @@ export class ServiceInvService {
 
   url="http://localhost:9090/api/inv/recievedInvSent";
   url2="http://localhost:9090/api/inv/PutAcceptinv";
+  url3="http://localhost:9090/api/inv//recievedInvAccepted";
 
   constructor(private http:HttpClient) { }
 
-  getListInv(recieverId:string):Observable<InvResult[]>{
-    return this.http.get<InvResult[]>(`${this.url}/${recieverId}`);
+ //liste d'invitation par reciever id
+  getListInv(id:any):Observable<InvResult[]>{
+    return this.http.get<InvResult[]>(`${this.url}/${id}`);
+
+  }
+
+  //liste invitation par reciver id avec status invitation :accpted :qui envoyer par
+  // reciever id
+
+  getListAmis(id:any):Observable<InvResult[]>{
+    return this.http.get<InvResult[]>(`${this.url3}/${id}`);
 
   }
 
   //accepter invitation
-  accepterInvitation(id: string):Observable<InvResult>{
+  accepterInvitation(id: any):Observable<InvResult>{
     return this.http.put<InvResult>(`${this.url2}/${id}`, null);
   }
 

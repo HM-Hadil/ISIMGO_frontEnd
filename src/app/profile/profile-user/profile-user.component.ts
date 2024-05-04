@@ -3,11 +3,12 @@ import { UserModel } from './../UserModel';
 import { Component } from '@angular/core';
 import { UserServiceService } from '../service/user-service.service';
 import { UserDetails } from '../UserDetails';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-profile-user',
   standalone: true,
-  imports: [],
+  imports: [ DatePipe],
   templateUrl: './profile-user.component.html',
   styleUrl: './profile-user.component.scss'
 })
@@ -34,10 +35,5 @@ export class ProfileUserComponent {
 
   }
  )
-
- 
-
-
-
 }
 }

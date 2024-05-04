@@ -102,7 +102,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  href="https://www.bootdey.com/snippets/view/bs4-profile-friend-list"
+                  href="/friends"
                   target="__blank"
                   class="nav-link_ active show"
                   >FRIENDS</a
@@ -118,6 +118,7 @@
 
         <!-- begin profile-content -->
         @if (user) {
+          @for (pub of user.publications; track $index) {
         <div class="profile-content">
           <!-- begin tab-content -->
           <div class="tab-content p-0">
@@ -128,7 +129,9 @@
                 <li >
                   <!-- begin timeline-time -->
                   <div class="timeline-time">
+                    <span class="date">{{ pub.createdAt |date: 'yyyy-MM-dd / hh:mm a'  }}</span>
                     <!-- Adjust the time format as needed -->
+
                   </div>
                   <!-- end timeline-time -->
                   <!-- begin timeline-icon -->
@@ -147,9 +150,10 @@
                         <a href="javascript:;">{{ user.firstname }} {{ user.lastname }}</a>
                         <small></small>
                       </span>
-                      <!-- Display publication content -->
-                      <div class="timeline-content">
-                      </div>
+                    <!-- Display publication content -->
+                  <div class="timeline-content mt-4">
+                    <p>{{ pub.content }}</p>
+                  </div>
                       <!-- Display publication statistics -->
                       <div class="timeline-likes">
                         <div class="stats-right">
@@ -210,7 +214,7 @@
           <!-- end tab-content -->
         </div>
         <!-- end profile-content -->
-      }
+      }}
       </div>
     </div>
   </div>

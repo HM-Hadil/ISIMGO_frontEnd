@@ -1,1 +1,95 @@
-<p>liste-amis works!</p>
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="content" class="content content-full-width">
+        <!-- begin profile -->
+
+        <!-- end profile -->
+        <!-- begin profile-content -->
+        <div class="profile-content">
+          <!-- begin tab-content -->
+          <div class="tab-content p-0">
+            <!-- begin #profile-friends tab -->
+            <div class="tab-pane fade in active show" id="profile-friends">
+              <h4 class="m-t-0 m-b-20">Friend List (14)</h4>
+              <!-- begin row -->
+
+              <div class="row row-space-2">
+                <!-- begin col-6 -->
+                @for (ami of listAmis; track $index) {
+                <div class="col-md-6 m-b-2">
+                  <div class="p-10 bg-white">
+                    <div class="media media-xs overflow-visible">
+                      <a class="media-left" href="javascript:;">
+                        <img
+                          src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                          alt=""
+                          class="media-object img-circle"
+                        />
+                      </a>
+                      <div class="media-body valign-middle">
+                        <b class="text-inverse"></b>
+                      </div>
+                      <div
+                        class="media-body valign-middle text-right overflow-visible"
+                      >
+                        <div class="btn-group dropdown">
+                          <a href="javascript:;" class="btn btn-default"
+                            >Friends</a
+                          >
+                          <a
+                            href="javascript:;"
+                            data-toggle="dropdown"
+                            class="btn btn-default dropdown-toggle"
+                            aria-expanded="false"
+                          ></a>
+                          <ul
+                            class="dropdown-menu dropdown-menu-right"
+                            x-placement="bottom-end"
+                            style="
+                              position: absolute;
+                              will-change: transform;
+                              top: 0px;
+                              left: 0px;
+                              transform: translate3d(101px, 34px, 0px);
+                            "
+                          >
+                            <li><a href="javascript:;">Action 1</a></li>
+                            <li><a href="javascript:;">Action 2</a></li>
+                            <li><a href="javascript:;">Action 3</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:;">Action 4</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end col-6 -->
+                <!-- begin col-6 -->
+
+                <!-- end col-6 -->
+                <!-- begin col-6 -->
+
+                <!-- end col-6 -->
+
+                }
+              </div>
+
+              <!-- end col-6 -->
+            </div>
+
+            <!-- end row -->
+          </div>
+          <!-- end #profile-friends tab -->
+        </div>
+        <!-- end tab-content -->
+      </div>
+      <!-- end profile-content -->
+    </div>
+  </div>
+</div>
