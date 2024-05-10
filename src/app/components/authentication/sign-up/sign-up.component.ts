@@ -4,6 +4,7 @@ import { ServiceAuthService } from '../service/service-auth.service';
 import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from '../../../sharedComponents/navbar/navbar.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   standalone: true,
@@ -16,7 +17,7 @@ export class SignUpComponent {
   signuModel!:SignupModel;
 
   signUpForm!:FormGroup;
-  public constructor(private service:ServiceAuthService, private fb:FormBuilder){
+  public constructor(private route:Router,private service:ServiceAuthService, private fb:FormBuilder){
 
   }
   ngOnInit(): void {
@@ -36,6 +37,8 @@ signUp( ) {
   this.service.signup(this.signuModel).subscribe(data=>{
     console.log("data",data);
     console.log("form",this.signUpForm);
+    alert("registre avec succée")
+    this.route.navigate(["/login"]);
   })
 
 

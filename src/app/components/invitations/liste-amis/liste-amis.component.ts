@@ -38,6 +38,13 @@ export class ListeAmisComponent {
     });
   }
 
+  deleteInv(id:any){
+    this.serviceInv.deleteInv(id).subscribe(data=>{
+      console.log("data")
+      alert("amis retiré");
+      window.location.reload();
+    })
+  }
   getListAmisByReciever() {
     if (this.id) {
       this.serviceInv.getListAmis(this.id).subscribe(data => {

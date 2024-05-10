@@ -10,6 +10,7 @@ import { authGuard } from './components/authentication/service/auth.guard';
 import { CreatePublicationComponent } from './profile/publication/create-publication/create-publication.component';
 import { ListPublicationComponent } from './profile/publication/list-publication/list-publication.component';
 import { ListeAmisComponent } from './components/invitations/liste-amis/liste-amis.component';
+import { SuggestionsComponent } from './components/invitations/suggestions/suggestions.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +32,9 @@ export const routes: Routes = [
         path:'createPub',component:CreatePublicationComponent
       },
       {path:'listPub',component:ListPublicationComponent},
+
+      {path:'suggestion',component:SuggestionsComponent},
+
 
       {path:'friends',component:ListeAmisComponent}
     ],

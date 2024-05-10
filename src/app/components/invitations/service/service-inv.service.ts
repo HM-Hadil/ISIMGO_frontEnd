@@ -10,7 +10,10 @@ export class ServiceInvService {
 
   url="http://localhost:9090/api/inv/recievedInvSent";
   url2="http://localhost:9090/api/inv/PutAcceptinv";
-  url3="http://localhost:9090/api/inv//recievedInvAccepted";
+  url3="http://localhost:9090/api/inv/recievedInvAccepted";
+  url4="http://localhost:9090/api/inv/senderInvAccepted";
+  url5="http://localhost:9090/api/inv/deleteInv";
+  //{senderId}
 
   constructor(private http:HttpClient) { }
 
@@ -27,6 +30,17 @@ export class ServiceInvService {
     return this.http.get<InvResult[]>(`${this.url3}/${id}`);
 
   }
+  deleteInv(id:any):Observable<any>{
+    return this.http.delete<any>(`${this.url5}/${id}`);
+
+  }
+  //liste invitation par sender id avec status invitation :accpted :qui envoyer par
+  // sender id
+  getListAmisEnvoyer(senderid:any):Observable<InvResult[]>{
+    return this.http.get<InvResult[]>(`${this.url4}/${senderid}`);
+
+  }
+
 
   //accepter invitation
   accepterInvitation(id: any):Observable<InvResult>{

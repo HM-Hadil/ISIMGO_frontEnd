@@ -5,8 +5,6 @@ import { Router } from '@angular/router';
 import { ServiceInvService } from '../service/service-inv.service';
 import { UserServiceService } from '../../../profile/service/user-service.service';
 
-
-
 @Component({
   selector: 'app-list-invit',
   standalone: true,
@@ -16,20 +14,19 @@ import { UserServiceService } from '../../../profile/service/user-service.servic
 })
 export class ListInvitComponent {
   invModel: InvResult[] = [];
-  listInv :InvResult[]=[];
-  id!:any;
-  email:any;
+  listInv: InvResult[] = [];
+  id!: any;
+  email: any;
 
   constructor(
     private serviceInv: ServiceInvService,
     private router: Router,
-    private serviceUser:UserServiceService,
+    private serviceUser: UserServiceService,
     private http: HttpClient
   ) {}
 
   ngOnInit() {
-    this.getUserByEmail() ;
-
+    this.getUserByEmail();
   }
 
   getUserByEmail() {
@@ -48,26 +45,29 @@ export class ListInvitComponent {
 
   getListInvByReciever() {
     if (this.id) {
-      this.serviceInv.getListInv(this.id).subscribe(data => {
-        console.log("data", data);
+      this.serviceInv.getListInv(this.id).subscribe((data) => {
+        console.log('data', data);
         this.listInv = data;
-        console.log("list inv model result", this.listInv);
+        console.log('list inv model result', this.listInv);
       });
     }
-
   }
 
-  accepterInv(id:any){
-    this.serviceInv.accepterInvitation(id).subscribe(data => {
-      alert("invitation accepté");
+  accepterInv(id: any) {
+    this.serviceInv.accepterInvitation(id).subscribe(
+      (data) => {
+        alert('invitation accepté');
+        console.log('id acc ', id);
+        window.location.reload();
 
-    }, error => {
-      console.log('Error activating doctor:', error);
-    });
-
+      },
+      (error) => {
+        console.log('Error activating doctor:', error);
+      }
+    );
   }
 
   seeDetails(id: string) {
-    this.router.navigate(['detail-compte-Medecin', id]);
+    this.router.navigate(['', id]);
   }
 }
